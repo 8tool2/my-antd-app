@@ -6,4 +6,6 @@ html, body {
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
   font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  max-width: 320px;
 }

@@ -1,6 +1,7 @@
 .container {
     display: flex;
     flex-direction: column; /* Arrange items in a column */
+    max-width: 320px;
   }
   
   .Hero {
@@ -10,12 +11,13 @@
     flex-direction: column;
     justify-content: center; /* Centers horizontally */
     align-items: center;
+    max-width: 320px;
 
   }
 
   .HeroBig {
     border-radius: 5px;
-     
+    max-width: 320px;
     display:flex;
     flex-direction: column;
     justify-content: center; /* Centers horizontally */
@@ -30,6 +32,7 @@
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     font-family: "Times New Roman", Times, serif;
+    max-width: 320px;
     
   }
   
@@ -40,10 +43,12 @@
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     font-family: "Times New Roman", Times, serif;
+    max-width: 20px;
   }
 
   .Editing{
     font-weight:bold;
+    max-width: 320px;
   }
 
   .HeroImage{
@@ -53,4 +58,5 @@
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     font-family: "Times New Roman", Times, serif;
+    max-width: 320px;
   }
