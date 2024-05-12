@@ -8,6 +8,18 @@
     border:1px solid black;
     display:flex;
     flex-direction: column;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+
+  }
+
+  .HeroBig {
+    border-radius: 5px;
+     
+    display:flex;
+    flex-direction: column;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
 
   }
 

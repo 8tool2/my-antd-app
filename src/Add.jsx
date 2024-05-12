@@ -3,7 +3,7 @@ import { Button, Input } from 'antd';
 import './Add.css'; // Import Ant Design CSS
 
 function DynamicAreas() {
-  const [contents, setContents] = useState([{ type: 'text', content: '', images: [] }]); // State to hold contents and their types
+  const [contents, setContents] = useState([]); // State to hold contents and their types
   const [hoveredIndex, setHoveredIndex] = useState(null); // State to track the index of the hovered block
 
   // Function to handle adding a new content block
@@ -87,60 +87,58 @@ function DynamicAreas() {
 
   return (
     <div style={{ height: '80vh', overflowY: 'auto', margin: '10px' }}>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Button onClick={addContent}>Add</Button>
-        {contents.map((content, index) => (
-          <div
-            key={index}
-            className="Hero"
-            draggable
-            onDragStart={(event) => handleDragStart(event, index)}
-            onDrop={(event) => handleDrop(event, index)}
-            onDragOver={handleDragOver}
-            onMouseEnter={() => handleBlockHover(index)}
-            onMouseLeave={handleBlockLeave}
-            style={{ marginBottom: '10px', position: 'relative' }}
-          >
-            {hoveredIndex === index && (
-              <div style={{ position: 'absolute', top: '5px', right: '5px', zIndex: 1 }}>
-                {/* Render editing tools only when hovered */}
-                <Button type="link" icon={<b>B</b>} />
-                <Button type="link" icon={<i>I</i>} />
-              </div>
-            )}
-            <div className='HeroTwo'>
-              <Button onClick={() => changeContentType(index, 'text')} type={content.type === 'text' ? 'primary' : 'default'}>Text</Button>
-              <Button onClick={() => changeContentType(index, 'picture')} type={content.type === 'picture' ? 'primary' : 'default'}>Picture</Button>
+      <Button onClick={addContent} style={{ marginBottom: '10px' }}>Add</Button> {/* Button added here */}
+      {contents.map((content, index) => (
+        <div
+          key={index}
+          className="Hero"
+          draggable
+          onDragStart={(event) => handleDragStart(event, index)}
+          onDrop={(event) => handleDrop(event, index)}
+          onDragOver={handleDragOver}
+          onMouseEnter={() => handleBlockHover(index)}
+          onMouseLeave={handleBlockLeave}
+          style={{ marginBottom: '10px', position: 'relative' }}
+        >
+          {hoveredIndex === index && (
+            <div style={{ position: 'absolute', top: '5px', right: '5px', zIndex: 1 }}>
+              {/* Render editing tools only when hovered */}
+              <Button type="link" icon={<b>B</b>} />
+              <Button type="link" icon={<i>I</i>} />
             </div>
-            {content.type === 'text' && (
-              <Input.TextArea
-                value={content.content}
-                onChange={(event) => handleContentChange(index, event)}
-                style={{ marginLeft: '10px', width: '500px', height: '200px', margin: "20px" }}
-              />
-            )}
-            {content.type === 'picture' && (
-              <div >
-                < div className = "HeroImage">
-                <input 
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={(event) => handleImageUpload(event, index)}
-                />
-                </div>
-                <div  className = "HeroImage" style={{ display: 'flex', flexWrap: 'wrap' }}>
-                  {content.images.map((image, imageIndex) => (
-                    <div key={imageIndex} style={{ marginRight: '10px', marginBottom: '10px' }}>
-                      <img src={image} alt={`Uploaded ${imageIndex}`} style={{ maxWidth: '200px', maxHeight: '200px' }} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+          )}
+          <div className='HeroTwo'>
+            <Button onClick={() => changeContentType(index, 'text')} type={content.type === 'text' ? 'primary' : 'default'}>Text</Button>
+            <Button onClick={() => changeContentType(index, 'picture')} type={content.type === 'picture' ? 'primary' : 'default'}>Picture</Button>
           </div>
-        ))}
-      </div>
+          {content.type === 'text' && (
+            <Input.TextArea
+              value={content.content}
+              onChange={(event) => handleContentChange(index, event)}
+              style={{ marginLeft: '10px', width: '500px', height: '200px', margin: "20px" }}
+            />
+          )}
+          {content.type === 'picture' && (
+            <div >
+              < div className = "HeroImage">
+              <input 
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={(event) => handleImageUpload(event, index)}
+              />
+              </div>
+              <div  className = "HeroImage" style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {content.images.map((image, imageIndex) => (
+                  <div key={imageIndex} style={{ marginRight: '10px', marginBottom: '10px' }}>
+                    <img src={image} alt={`Uploaded ${imageIndex}`} style={{ maxWidth: '200px', maxHeight: '200px' }} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
