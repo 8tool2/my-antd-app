@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+  }
+  
+  .Hero {
+    border-radius: 5px;
+    border:1px solid black;
+    display:flex;
+    flex-direction: column;
+
+  }
+
+  .HeroTwo{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    font-family: "Times New Roman", Times, serif;
+    
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .Editing{
+    font-weight:bold;
+  }
+
+  .HeroImage{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    font-family: "Times New Roman", Times, serif;
+  }
