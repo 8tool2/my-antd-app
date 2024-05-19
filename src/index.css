@@ -8,3 +8,16 @@ html, body {
   font-family: "Times New Roman", Times, serif;
   font-size: 12px;
 }
+
+@media only screen and (max-width: 320px) {
+  .Hero {
+    border-radius: 5px;
+    border:1px solid black;
+    max-width: ;
+    display:flex;
+    flex-direction: column;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+
+  }
+  }

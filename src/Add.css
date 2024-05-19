@@ -15,7 +15,6 @@
 
   .HeroBig {
     border-radius: 5px;
-    max-width: 320px;
     display:flex;
     flex-direction: column;
     justify-content: center; /* Centers horizontally */
@@ -54,3 +53,5 @@
     align-items: center; /* Centers vertically */
     font-family: "Times New Roman", Times, serif;
   }
+
+ 

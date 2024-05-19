@@ -3,7 +3,7 @@ import { Button, Input } from 'antd';
 import './Add.css'; // Import Ant Design CSS
 
 function DynamicAreas() {
-  const [contents, setContents] = useState([]); // State to hold contents and their types
+  const [contents, setContents] = useState([]); // State to hold contents and their types -  eg text or type   
   const [hoveredIndex, setHoveredIndex] = useState(null); // State to track the index of the hovered block
 
   // Function to handle adding a new content block

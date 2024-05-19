@@ -3,3 +3,10 @@ body {
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
 }
+
+
+@media only screen and (max-width: 320px) {
+  html,body{
+  display:none;
+  }
+  }
