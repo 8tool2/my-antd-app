@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Input } from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import './Add.css'; // Import Ant Design CSS
 
 function DynamicAreas() {
-  const [contents, setContents] = useState([]); // State to hold contents and their types -  eg text or type   
+  const [contents, setContents] = useState([]); // State to hold contents and their types - eg text or picture
   const [hoveredIndex, setHoveredIndex] = useState(null); // State to track the index of the hovered block
 
   // Function to handle adding a new content block
@@ -87,7 +89,9 @@ function DynamicAreas() {
 
   return (
     <div style={{ height: '80vh', overflowY: 'auto', margin: '10px' }}>
-      <Button onClick={addContent} style={{ marginBottom: '10px' }}>Add</Button> {/* Button added here */}
+      <Button onClick={addContent} style={{ marginBottom: '10px' }}>
+        <FontAwesomeIcon icon={faPlus} />
+      </Button> {/* Button added here */}
       {contents.map((content, index) => (
         <div
           key={index}
@@ -107,9 +111,13 @@ function DynamicAreas() {
               <Button type="link" icon={<i>I</i>} />
             </div>
           )}
-          <div className='HeroTwo'>
-            <Button onClick={() => changeContentType(index, 'text')} type={content.type === 'text' ? 'primary' : 'default'}>Text</Button>
-            <Button onClick={() => changeContentType(index, 'picture')} type={content.type === 'picture' ? 'primary' : 'default'}>Picture</Button>
+          <div className="HeroTwo">
+            <Button onClick={() => changeContentType(index, 'text')} type={content.type === 'text' ? 'primary' : 'default'}>
+              Text
+            </Button>
+            <Button onClick={() => changeContentType(index, 'picture')} type={content.type === 'picture' ? 'primary' : 'default'}>
+              Picture
+            </Button>
           </div>
           {content.type === 'text' && (
             <Input.TextArea
@@ -119,16 +127,16 @@ function DynamicAreas() {
             />
           )}
           {content.type === 'picture' && (
-            <div >
-              < div className = "HeroImage">
-              <input 
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={(event) => handleImageUpload(event, index)}
-              />
+            <div>
+              <div className="HeroImage">
+                <input 
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(event) => handleImageUpload(event, index)}
+                />
               </div>
-              <div  className = "HeroImage" style={{ display: 'flex', flexWrap: 'wrap' }}>
+              <div className="HeroImage" style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {content.images.map((image, imageIndex) => (
                   <div key={imageIndex} style={{ marginRight: '10px', marginBottom: '10px' }}>
                     <img src={image} alt={`Uploaded ${imageIndex}`} style={{ maxWidth: '200px', maxHeight: '200px' }} />
